@@ -1,23 +1,31 @@
+
+                
+<!--                     @if (session('status')) -->
+<!--                         <div class="alert alert-success"> -->
+<!--                             {{ session('status') }} -->
+<!--                         </div> -->
+<!--                     @endif -->
+
+
+
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
+    <section class="hero is-info is-fullheight">
+      
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Welcome to shop
+          </h1>
+          <h2 class="subtitle">
+            You are logged in
+          </h2>
         </div>
-    </div>
-</div>
-@endsection
+      </div>
+      
+    </section>
+
+
+@endsection('content')

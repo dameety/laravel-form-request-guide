@@ -1,97 +1,101 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="{{ asset('css/bulma.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/shop.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+    
+        
+        {{--
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                        Logout
                     </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
+            </ul>
+        </nav>  --}}
+
+       
+
+        <nav class="navbar is-white topNav">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="../">
+                        <img src="{{ asset('img/shop.jpg') }}" width="90" height="28">
+                    </a>
+                    <div class="navbar-burger burger" data-target="topNav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Products <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('product.new') }}">
-                                            New
+    
+                <div id="topNav" class="navbar-menu">
+                    <div class="navbar-start">
+                        {{--  <a class="navbar-item" href="forum.html"> Home</a>  --}}
+                    </div>
+    
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="field is-grouped">
+                                @auth
+                                    <p class="control">
+                                        <a class="button is-small" href="{{ route('product.index') }}">
+                                        	<span> View Products </span>
                                         </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('product.index') }}">
-                                            All
+                                    </p>
+                                    <p class="control">
+                                        <a class="button is-small" href="{{ route('product.new') }}">
+                                        	<span> Create Product </span>
                                         </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
+                                    </p>
+                                    <p class="control">
+                                        <a class="button is-small is-danger is-outlined" href="{{ route('logout') }}">
+                                    		<span>Logout</span>
                                         </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
+                                    </p>
+                                @else
+                                    <p class="control">
+                                        <a class="button is-small"  href="{{ route('register') }}">
+                                        <span> Register </span>
+                                        </a>
+                                    </p>
+                                    <p class="control">
+                                        <a class="button is-small is-info is-outlined" href="{{ route('login') }}">
+                                        <span>Login</span>
+                                        </a>
+                                    </p>
+                                @endauth
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
-
+        
+    
         @yield('content')
-    </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+	</div>
+	
+	
+    <script src="{{ asset('js/shop.js') }}"></script>
 </body>
 </html>
