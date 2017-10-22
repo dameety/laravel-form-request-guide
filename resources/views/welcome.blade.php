@@ -10,7 +10,7 @@
             Welcome to shop
           </h1>
           <h2 class="subtitle">
-            Full Height subtitle
+            Please create a product or ...
           </h2>
         </div>
       </div>

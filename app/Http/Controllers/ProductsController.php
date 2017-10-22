@@ -21,27 +21,32 @@ class ProductsController extends Controller
 
     public function create(Request $request)
     {
-
+        
+        
         // authorize
-        if ( Product::all()->count() === config('shop.maxproductlimit') ) {
-            return back()->with('maxProducts', 'Product creation unsuccessful. Maximum product limit reached.');
+        if ( Product::all()->count()  > 4 ) {
+            
+            return back()->with('maxProduct', 'Product creation unsuccessful. Maximum product limit reached.');
+        
         }
         
-        
         // validate
-//         $request->validate([
-//             'name' => 'required|min:255',
-//             'price' => 'required|numeric'
-//         ]);
-        
+        $data = $request->validate([
+            'name' => 'required|max:100',
+            'price' => 'required|numeric',
+            'description' => 'max:300',
+            'category' => 'required',
+            'image' => 'required|mimes:jpeg,png|max:200'
+        ]);
+               
         
         // upload
         $filename = request()->file('image')->store('products');
-        // dd($filename);
-        // Save
-        $data = $request->all();
+        
+        
         $data['image'] = $filename;
         Product::create($data);
+        
         return back()->with('productCreationSuccessful', 'You have successfully created a product.');
     }
 }

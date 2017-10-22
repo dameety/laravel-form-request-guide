@@ -1,71 +1,4 @@
 
-
-<!--                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}"> -->
-<!--                             <label for="name" class="col-md-4 control-label">Name</label> -->
-
-<!--                             <div class="col-md-6"> -->
-<!--                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus> -->
-
-<!--                                 @if ($errors->has('name')) -->
-<!--                                     <span class="help-block"> -->
-<!--                                         <strong>{{ $errors->first('name') }}</strong> -->
-<!--                                     </span> -->
-<!--                                 @endif -->
-<!--                             </div> -->
-<!--                         </div> -->
-
-<!--                         <div class="form-group"> -->
-<!--                             <label for="name" class="col-md-4 control-label">Product image</label> -->
-
-<!--                             <div class="col-md-6"> -->
-<!--                                 <input type="file" name="image" class="form-control"> -->
-<!--                             </div> -->
-<!--                         </div> -->
-
-<!--                         <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}"> -->
-<!--                             <label for="price" class="col-md-4 control-label">Price</label> -->
-
-<!--                             <div class="col-md-6"> -->
-<!--                                 <input id="price" type="text" class="form-control" name="price" value="{{ old('price') }}" required> -->
-
-<!--                                 @if ($errors->has('price')) -->
-<!--                                     <span class="help-block"> -->
-<!--                                         <strong>{{ $errors->first('price') }}</strong> -->
-<!--                                     </span> -->
-<!--                                 @endif -->
-<!--                             </div> -->
-<!--                         </div> -->
-
-<!--                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}"> -->
-<!--                             <label for="description" class="col-md-4 control-label">Description</label> -->
-
-<!--                             <div class="col-md-6"> -->
-<!--                                 <textarea name="description" class="form-control" rows="4" value="{{ old('description') }}" required></textarea> -->
-
-<!--                                 @if ($errors->has('description')) -->
-<!--                                     <span class="help-block"> -->
-<!--                                         <strong>{{ $errors->first('description') }}</strong> -->
-<!--                                     </span> -->
-<!--                                 @endif -->
-<!--                             </div> -->
-<!--                         </div> -->
-
-<!--                         <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}"> -->
-<!--                             <label for="category" class="col-md-4 control-label">Category</label> -->
-
-<!--                             <div class="col-md-6"> -->
-<!--                                 <input id="category" type="text" class="form-control" name="category" value="{{ old('category') }}" required> -->
-
-<!--                                 @if ($errors->has('category')) -->
-<!--                                     <span class="help-block"> -->
-<!--                                         <strong>{{ $errors->first('category') }}</strong> -->
-<!--                                     </span> -->
-<!--                                 @endif -->
-<!--                             </div> -->
-<!--                         </div> -->
-
-
-
 @extends('layouts.app')
 
 @section('content')
@@ -88,6 +21,12 @@
                 @endif
                 
                 
+                @if(session('maxProduct'))
+                    <div class="notification is-danger">
+                        <strong> {{ session('maxProduct') }} </strong>
+                    </div>
+                @endif
+                
                 @if (count($errors))
                     <div class="notification is-danger">
                         @foreach ($errors -> all() as $error)
@@ -95,6 +34,8 @@
                         @endforeach
                     </div>
                 @endif
+                
+                
                 
                 
                 <form role="form" method="POST" action="{{ route('product.create') }}" enctype="multipart/form-data">

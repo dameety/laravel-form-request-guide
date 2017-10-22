@@ -12,7 +12,7 @@
                 </h1>
             </div>
 
-            <div class="box column is-7">
+            <div class="box column is-6">
             
             	@if (count($errors))
                     <div class="notification is-danger">

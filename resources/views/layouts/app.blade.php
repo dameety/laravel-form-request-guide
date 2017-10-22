@@ -49,7 +49,7 @@
     
                 <div id="topNav" class="navbar-menu">
                     <div class="navbar-start">
-                        {{--  <a class="navbar-item" href="forum.html"> Home</a>  --}}
+                        <a class="navbar-item" href="#"></a>
                     </div>
     
                     <div class="navbar-end">
@@ -67,20 +67,28 @@
                                         </a>
                                     </p>
                                     <p class="control">
-                                        <a class="button is-small is-danger is-outlined" href="{{ route('logout') }}">
-                                    		<span>Logout</span>
-                                        </a>
+                                       
+                                        <a class="button is-small is-danger is-outlined this dsd" href="{{ route('logout') }}"
+                        					onclick="event.preventDefault();
+                        					document.getElementById('logout-form').submit();">
+                        					<span>Logout</span>
+                    					</a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                        
                                     </p>
                                 @else
                                     <p class="control">
                                         <a class="button is-small"  href="{{ route('register') }}">
-                                        <span> Register </span>
+                                        	<span> Register </span>
                                         </a>
                                     </p>
                                     <p class="control">
                                         <a class="button is-small is-info is-outlined" href="{{ route('login') }}">
-                                        <span>Login</span>
-                                        </a>
+                                        	<span>Login</span>
+                                        </a>                                        
                                     </p>
                                 @endauth
                             </div>

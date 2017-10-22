@@ -10,7 +10,7 @@
     		
         		@foreach( $products as $product)
                     
-                    <div class="column">
+                    <div class="column is-3">
     	                <div class="card">
                           <div class="card-image">
                             <figure class="image is-4by3">
@@ -18,20 +18,25 @@
                             </figure>
                           </div>
                           <div class="card-content">
-                            <div class="media">
-                              <div class="media-content">
-                                <p class="title is-4">{{$product->name}}</p>
-                                <p class="subtitle is-6">${{$product->price}}</p>
-                              </div>
+                          	
+                          	
+                          	<div class="media">
+                              	<div class="media-content">
+                                	<p class="title is-4">{{$product->name}}</p>
+                              	</div>
                             </div>
                         
                             <div class="content">
                             	{{$product->description}}
+                            	<a href="#">#{{$product->category }}</a>
                             </div>
+                            
                           </div>
+                          
                           <footer class="card-footer">
-                            <a href="#" class="card-footer-item">Buy</a>
-                          </footer>
+                            <a href="#" class="card-footer-item">Pay ${{$product->price}}</a>
+                       	  </footer>
+                       
                         </div>
                   	</div>
                     
