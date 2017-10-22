@@ -24,7 +24,7 @@ class ProductsController extends Controller
         
         
         // authorize
-        if ( Product::all()->count()  > 4 ) {
+        if ( Product::all()->count()  > 0 ) {
             
             return back()->with('maxProduct', 'Product creation unsuccessful. Maximum product limit reached.');
         
