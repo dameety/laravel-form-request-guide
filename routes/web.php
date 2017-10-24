@@ -11,17 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/products', 'ProductsController@index')->name('product.index');
-    Route::get('/product/new', 'ProductsController@new')->name('product.new');
-    Route::post('/product/create', 'ProductsController@create')->name('product.create');
+    Route::get('/messages', 'MessagesController@index')->name('message.index');
+    Route::get('/message/new', 'MessagesController@new')->name('message.new');
+    Route::post('/message/create', 'MessagesController@create')->name('message.create');
 });
 

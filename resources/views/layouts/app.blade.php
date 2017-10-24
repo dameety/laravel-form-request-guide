@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,30 +9,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="{{ asset('css/bulma.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/shop.css') }}" rel="stylesheet">
-    
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
-    
-        
-        {{--
-            <ul class="dropdown-menu" role="menu">
-                <li>
-                    <a href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                </li>
-            </ul>
-        </nav>  --}}
-
-       
 
         <nav class="navbar is-white topNav">
             <div class="container">
@@ -46,38 +27,37 @@
                         <span></span>
                     </div>
                 </div>
-    
+
                 <div id="topNav" class="navbar-menu">
                     <div class="navbar-start">
                         <a class="navbar-item" href="#"></a>
                     </div>
-    
+
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <div class="field is-grouped">
                                 @auth
                                     <p class="control">
-                                        <a class="button is-small" href="{{ route('product.index') }}">
-                                        	<span> View Products </span>
+                                        <a class="button is-small" href="{{ route('message.index') }}">
+                                        	<span> View Messages </span>
                                         </a>
                                     </p>
                                     <p class="control">
-                                        <a class="button is-small" href="{{ route('product.new') }}">
-                                        	<span> Create Product </span>
+                                        <a class="button is-small" href="{{ route('message.new') }}">
+                                        	<span> Create Message </span>
                                         </a>
                                     </p>
                                     <p class="control">
-                                       
+
                                         <a class="button is-small is-danger is-outlined this dsd" href="{{ route('logout') }}"
                         					onclick="event.preventDefault();
                         					document.getElementById('logout-form').submit();">
                         					<span>Logout</span>
                     					</a>
-
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
-                                        
+
                                     </p>
                                 @else
                                     <p class="control">
@@ -88,7 +68,7 @@
                                     <p class="control">
                                         <a class="button is-small is-info is-outlined" href="{{ route('login') }}">
                                         	<span>Login</span>
-                                        </a>                                        
+                                        </a>
                                     </p>
                                 @endauth
                             </div>
@@ -97,13 +77,11 @@
                 </div>
             </div>
         </nav>
-        
-    
+
         @yield('content')
 
 	</div>
-	
-	
-    <script src="{{ asset('js/shop.js') }}"></script>
+
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
