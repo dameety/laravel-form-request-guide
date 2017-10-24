@@ -5,45 +5,32 @@
     <section class="section">
 
     	<div class="container">
-    		<div class="columns">
+    		<div class="column is-7 center">
 
-        		@foreach( $products as $product)
+        		@foreach( $messages as $message)
 
-                    <div class="column is-3">
-    	                <div class="card">
-                          <div class="card-image">
-                            <figure class="image is-4by3">
-                              <img src="{{ Storage::disk('local')->url($product->image) }}" alt="Placeholder image">
-                            </figure>
-                          </div>
-                          <div class="card-content">
-                          	<div class="media">
-                              	<div class="media-content">
-                                	<p class="title is-4">{{$product->name}}</p>
-                              	</div>
-                            </div>
+                    <div class="card round-corner tb-margin">
 
+                        <div class="card-content">
                             <div class="content">
-                            	{{$product->description}}
-                            	<a href="#">#{{$product->category }}</a>
+                                {{$message->message}}
+                                <br>
+                                <br>
+                                <span> {{ $message->created_at }} </span>
+                                <a href="#">#{{$message->category }}</a>
                             </div>
-
-                          </div>
-
-                          <footer class="card-footer">
-                            <a href="#" class="card-footer-item">Pay ${{$product->price}}</a>
-                       	  </footer>
-
                         </div>
-                  	</div>
+
+                        <footer class="card-footer">
+                            <span class="card-footer-item"> - {{ $message->email }} </span>
+                        </footer>
+
+                    </div>
 
                 @endforeach
 
     		</div>
-
-
     	</div>
-
 
     </section>
 

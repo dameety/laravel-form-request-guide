@@ -21,22 +21,15 @@ class MessagesController extends Controller
 
     public function create(Request $request)
     {
-        // validate
         $data = $request->validate([
-            'name' => 'required|max:100',
-            'price' => 'required|numeric',
-            'description' => 'max:500',
+            'email' => 'required|email|max:50',
             'category' => 'required',
-            'image' => 'required|mimes:jpeg,png|max:200'
+            'subject' => 'required|max:100',
+            'message' => 'required|max:500'
         ]);
 
-        // upload
-        $filename = request()->file('image')->store('products');
+        Message::create($data);
 
-        // save to db
-        $data['image'] = $filename;
-        Product::create($data);
-
-        return back()->with('productCreationSuccessful', 'You have successfully created a product.');
+        return back()->with('messageCreationSuccessful', 'Successful operation.');
     }
 }

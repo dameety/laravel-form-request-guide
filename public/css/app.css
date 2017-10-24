@@ -1,9 +1,11 @@
+.center {
+    margin: auto;
+}
+.round-corner {
+    border-radius: 10px;
+}
+.tb-margin {
+    margin: 20px 0px 20px 0px;
+}
 
-  .box.column {
-  	margin: auto;
-  }
-  
-  
-  
-  
-  
+
