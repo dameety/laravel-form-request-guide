@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="hero is-info is-fullheight">
+    <section class="hero is-fullheight bg-color">
 
         <div class="hero-body">
             <div class="container">

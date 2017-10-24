@@ -10,7 +10,7 @@ class MessagesController extends Controller
     public function index()
     {
         return view('messages.index', [
-            'messages' => Message::all()
+            'messages' => Message::latest('created_at')->get()
         ]);
     }
 
@@ -30,6 +30,25 @@ class MessagesController extends Controller
 
         Message::create($data);
 
-        return back()->with('messageCreationSuccessful', 'Successful operation.');
+        return back()->with('successfulCreate', 'Successful create operation.');
+    }
+
+    public function edit( $id )
+    {
+        return view('messages.edit', [
+            'message'=> Message::find($id)
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->validate([
+            'email' => 'required|email|max:50',
+            'subject' => 'required|max:100',
+            'message' => 'required|max:500'
+        ]);
+
+        Message::find($id)->update($data);
+        return redirect()->route('message.index');
     }
 }

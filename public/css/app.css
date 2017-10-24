@@ -1,6 +1,9 @@
 .center {
     margin: auto;
 }
+.bg-color {
+    background-color: steelblue;
+}
 .round-corner {
     border-radius: 10px;
 }

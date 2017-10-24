@@ -11,17 +11,18 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/messages', 'MessagesController@index')->name('message.index');
+
     Route::get('/message/new', 'MessagesController@new')->name('message.new');
     Route::post('/message/create', 'MessagesController@create')->name('message.create');
+
+    Route::get('/message/edit/{id}', 'MessagesController@edit')->name('message.edit');
+    Route::post('/message/update/{id}', 'MessagesController@update')->name('message.update');
+
 });
 
