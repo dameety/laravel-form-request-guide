@@ -1,19 +1,17 @@
 @extends('layouts.app')
-
 @section('content')
-
 
 	<section class="section">
 		<div class="container">
-			
+
 			<div class="column has-text-centered">
                 <h1 class="title is-3">
                     Login To Your Account.
                 </h1>
             </div>
 
-            <div class="box column is-6">
-            
+            <div class="box column center is-6">
+
             	@if (count($errors))
                     <div class="notification is-danger">
                         @foreach ($errors -> all() as $error)
@@ -40,19 +38,19 @@
                     </div>
 
 
-                    <div class="field is-grouped uk-margin-top">
+                    <div class="field is-grouped">
                         <div class="control">
-                            <button type="submit" class="button is-primary uk-margin-small-right">Proceed</button>
+                            <button type="submit" class="button is-link">Proceed</button>
                         </div>
                     </div>
 
                 </form>
 
             </div>
-			
+
 		</div>
 	</section>
-	
-	
+
+
 
 @endsection

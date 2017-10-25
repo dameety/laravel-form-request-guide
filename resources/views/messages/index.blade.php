@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="section bg-color">
+    <section class="section">
 
     	<div class="container">
     		<div class="column is-7 center">

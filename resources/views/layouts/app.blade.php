@@ -18,8 +18,8 @@
         <nav class="navbar is-white topNav">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="../">
-                        <img src="{{ asset('img/shop.jpg') }}" width="90" height="28">
+                    <a class="navbar-item" href="/">
+                        <img src="{{ asset('img/message.jpg') }}" width="90" height="28">
                     </a>
                     <div class="navbar-burger burger" data-target="topNav">
                         <span></span>

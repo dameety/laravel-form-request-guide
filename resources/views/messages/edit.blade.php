@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-	<section class="section bg-color">
+	<section class="section">
 		<div class="container">
 
 			<div class="column has-text-centered">
@@ -56,11 +56,9 @@
                         </div>
                     </div>
 
-                    <div class="field is-grouped uk-margin-top">
+                    <div class="field is-grouped">
                         <div class="control">
-                            <button type="submit" class="button is-link uk-margin-small-right"> Update </button>
-                        </div>
-                        <div class="control uk-margin-small-top">
+                            <button type="submit" class="button is-link"> Update </button>
                         </div>
                     </div>
 
