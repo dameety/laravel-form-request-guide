@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-	<section class="section bg-color">
+	<section class="section">
 		<div class="container">
 
 			<div class="column has-text-centered">
@@ -20,8 +20,9 @@
                     </div>
                 @endif
 
-                <form role="form" method="POST" action="{{ route('message.update', $message->id) }}">
+                <form role="form" method="post" action="{{ route('message.update', $message->id) }}">
                 {{ csrf_field() }}
+                <input type="hidden" name="_method" value="PATCH">
 
                     <div class="field">
                         <label class="label">Email</label>
@@ -56,11 +57,9 @@
                         </div>
                     </div>
 
-                    <div class="field is-grouped uk-margin-top">
+                    <div class="field is-grouped">
                         <div class="control">
-                            <button type="submit" class="button is-link uk-margin-small-right"> Update </button>
-                        </div>
-                        <div class="control uk-margin-small-top">
+                            <button type="submit" class="button is-link"> Update </button>
                         </div>
                     </div>
 

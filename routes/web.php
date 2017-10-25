@@ -22,7 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/message/create', 'MessagesController@create')->name('message.create');
 
     Route::get('/message/edit/{id}', 'MessagesController@edit')->name('message.edit');
-    Route::post('/message/update/{id}', 'MessagesController@update')->name('message.update');
+    Route::patch('/message/update/{id}', 'MessagesController@update')->name('message.update');
 
 });
 

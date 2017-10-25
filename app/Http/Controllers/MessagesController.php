@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Message;
 use Illuminate\Http\Request;
+use App\Http\Requests\MessageRequest;
 
 class MessagesController extends Controller
 {
@@ -19,17 +20,9 @@ class MessagesController extends Controller
         return view('messages.new');
     }
 
-    public function create(Request $request)
+    public function create(MessageRequest $request)
     {
-        $data = $request->validate([
-            'email' => 'required|email|max:50',
-            'category' => 'required',
-            'subject' => 'required|max:100',
-            'message' => 'required|max:500'
-        ]);
-
-        Message::create($data);
-
+        Message::create($request->validated());
         return back()->with('successfulCreate', 'Successful create operation.');
     }
 
@@ -40,15 +33,9 @@ class MessagesController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(MessageRequest $request, $id)
     {
-        $data = $request->validate([
-            'email' => 'required|email|max:50',
-            'subject' => 'required|max:100',
-            'message' => 'required|max:500'
-        ]);
-
-        Message::find($id)->update($data);
-        return redirect()->route('message.index');
+        Message::find($id)->update($request->validated());
+        return redirect()->route('message.index')->with('successfulUpdate', 'Successful update operation');
     }
 }

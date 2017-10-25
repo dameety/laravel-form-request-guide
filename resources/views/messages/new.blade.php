@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
-	<section class="section bg-color">
+	<section class="section">
 		<div class="container">
 
 			<div class="column has-text-centered">
@@ -10,7 +9,7 @@
                 </h1>
             </div>
 
-            <div class="box column center is-7 is-info">
+            <div class="box column center is-7">
 
 				@if(session('successfulCreate'))
                     <div class="notification is-success">
@@ -63,11 +62,9 @@
                         </div>
                     </div>
 
-                    <div class="field is-grouped uk-margin-top">
+                    <div class="field is-grouped">
                         <div class="control">
-                            <button type="submit" class="button is-link uk-margin-small-right"> Create </button>
-                        </div>
-                        <div class="control uk-margin-small-top">
+                            <button type="submit" class="button is-link"> Create </button>
                         </div>
                     </div>
 
