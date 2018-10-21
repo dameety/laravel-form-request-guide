@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Message;
 use Illuminate\Foundation\Http\FormRequest;
 
 class MessageRequest extends FormRequest
@@ -11,10 +12,18 @@ class MessageRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(Message $message)
     {
         return true;
     }
+
+//    public function authorize(Message $message)
+//    {
+//        //how to check for authorization
+//        //dont forget to add a user_id on the message
+//        //$message = $message->find($this->id);
+//        // return $this->user()->id === $message->user_id;
+//    }
 
     public function createRules()
     {
